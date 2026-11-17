@@ -92,6 +92,6 @@ export function setupShotScene(state, api) {
   const types = new Set(state.clues.map((c) => c.type)).size;
   state.boardPct = state.mode === 'title' ? 0 : Math.min(100, Math.round(70 + (types / 6) * 30));
   const msg = document.getElementById('msg');
-  if (msg && (shot === 'title' || shot === 'end' || shot === 'board')) msg.textContent = '';
+  if (msg) msg.textContent = '';
   return true;
 }

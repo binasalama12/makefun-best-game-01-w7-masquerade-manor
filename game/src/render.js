@@ -275,6 +275,7 @@ function drawPlayPanels(ctx, state, t) {
   reg(968, 656, 124, 34, 'board');
   ctx.fillStyle = '#8a2c3a';
   ctx.beginPath(); ctx.roundRect(1104, 656, 124, 34, 6); ctx.fill(); ctx.stroke();
+  ctx.fillStyle = '#fff';
   ctx.fillText('ACCUSE…', 1166, 678);
   reg(1104, 656, 124, 34, 'board');
   ctx.textAlign = 'left';
@@ -332,6 +333,7 @@ function drawAccuseModal(ctx, state) {
   reg(440, 420, 170, 42, 'accuse-confirm');
   ctx.fillStyle = '#3a2c55'; ctx.strokeStyle = '#8a7fd0';
   ctx.beginPath(); ctx.roundRect(670, 420, 170, 42, 7); ctx.fill(); ctx.stroke();
+  ctx.fillStyle = '#fff';
   ctx.fillText('NOT YET', 755, 447);
   reg(670, 420, 170, 42, 'accuse-cancel');
   ctx.textAlign = 'left';
@@ -409,6 +411,7 @@ export function drawBoard(ctx, state, t) {
   if (state.selected != null) reg(48, 540, 260, 48, 'accuse-from-board');
   ctx.fillStyle = '#3a2c55'; ctx.strokeStyle = '#8a7fd0';
   ctx.beginPath(); ctx.roundRect(952, 540, 280, 48, 7); ctx.fill(); ctx.stroke();
+  ctx.fillStyle = '#fff';
   ctx.fillText('BACK TO THE BALL (ESC)', 1092, 570);
   reg(952, 540, 280, 48, 'close-board');
   ctx.textAlign = 'left';
