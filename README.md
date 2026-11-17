@@ -15,7 +15,10 @@ A masked ball in a gaslit manor. **8 AI guests** wander, mingle and slip away be
 and one of them, drawn secretly by the seeded RNG, is **the Thorn**. You are the detective.
 
 Each **round** (of **7 rounds per case**) you walk the manor, watch who avoids whom and who lingers
-at the conservatory door, read the **incidents feed**, and gather glowing **clue tokens**. There are
+at the conservatory door, read the **incidents feed**, and gather glowing **clue tokens**. A
+**conservatory linger tracker** on the suspicion panel counts how often each guest slips back to
+the conservatory — the Thorn and its decoys drift there far more than anyone else, so a rising
+tally is a real behavioural tell (a hint, never proof: only clues convict). There are
 **6 clue types** — muddy footprint, torn silk, wax seal, perfume vial, scratched key, false alibi —
 and every token reports a **true trait of the Thorn**. The deduction is genuinely solvable, by
 construction: footprint, silk and seal are three independent traits, so those three clues together

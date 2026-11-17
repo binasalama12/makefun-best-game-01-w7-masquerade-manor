@@ -242,8 +242,18 @@ function drawPlayPanels(ctx, state, t) {
     ctx.fillStyle = '#ffe9b8'; ctx.fillText(`${r.m}/${state.clues.length}`, 874, sy);
     sy += 24;
   }
+  // Conservatory linger tracker: who keeps slipping back to the
+  // conservatory door. Behavioural hint only — clues still convict.
+  const lingerTop = GUESTS.map((g, i) => ({ i, n: state.kase && state.kase.linger ? state.kase.linger[i] : 0 }))
+    .filter((r) => r.n > 0).sort((a, b) => b.n - a.n).slice(0, 2);
+  ctx.fillStyle = '#ffb0a8'; ctx.font = 'bold 11.5px Georgia';
+  ctx.fillText('CONSERVATORY LINGERS', 664, sy + 10);
+  ctx.font = '12px Georgia'; ctx.fillStyle = '#e8e2f2';
+  ctx.fillText(lingerTop.length
+    ? lingerTop.map((r) => `${GUESTS[r.i].name.split(' ').slice(-1)[0]} ×${r.n}`).join('   ·   ')
+    : 'no one — yet', 664, sy + 28);
   ctx.fillStyle = '#9a92b8'; ctx.font = '11.5px Georgia';
-  wrap(ctx, `Candidates still standing: ${candidatesFor(state.clues).length} of 8. Three true clues (footprint, silk, seal) always name one guest.`, 664, sy + 8, 258, 15, 4);
+  wrap(ctx, `Candidates standing: ${candidatesFor(state.clues).length} of 8 — footprint + silk + seal always name one guest.`, 664, sy + 48, 258, 14, 2);
 
   // Objective / tools panel (bottom-right)
   panel(ctx, 952, 470, 292, 232);

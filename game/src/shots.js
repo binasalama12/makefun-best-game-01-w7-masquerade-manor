@@ -59,6 +59,9 @@ export function setupShotScene(state, api) {
       'You observe Duchess Mara Ilves in the Ballroom. Nothing in her hands. Yet.',
       'Baron Tomas Rhee slipped away to the Dining Hall.',
     ];
+    // The linger tracker tells the same story as the feed: the Thorn
+    // (and a decoy) keep returning to the conservatory.
+    state.kase.linger = state.kase.guests.map((g) => (g.id === state.kase.culprit ? 5 : state.kase.decoys.includes(g.id) ? 4 : g.id === 2 ? 1 : 0));
     state.banner = { text: 'THE THORN WAS SEEN IN THE LIBRARY', timer: 99 };
     state.accuseTarget = state.kase.culprit;
     state.selected = state.kase.culprit;

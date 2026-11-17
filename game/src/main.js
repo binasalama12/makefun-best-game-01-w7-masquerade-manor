@@ -226,9 +226,13 @@ function update(dt) {
     p.y = Math.max(70, Math.min(452, p.y + my * 178 * dt));
   }
 
-  // Guests wander; their room changes become incidents.
+  // Guests wander; their room changes become incidents. Entries into
+  // the conservatory are tallied per guest — the linger tracker the
+  // suspicion panel reads (the Thorn and its decoys drift there).
   for (const g of state.kase.guests) {
+    const before = g.room;
     const inc = stepGuest(state.kase, g, dt, rng);
+    if (g.room === 'conservatory' && before !== 'conservatory') state.kase.linger[g.id]++;
     if (inc) pushFeed(inc, true);
   }
   // Ambient social texture: who avoids whom.

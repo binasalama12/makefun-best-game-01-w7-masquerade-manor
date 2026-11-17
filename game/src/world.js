@@ -123,6 +123,12 @@ export function buildCase(caseNum, seed, prevCulprit = -1) {
 
   return {
     num: caseNum, seed, culprit, decoys, guests, tokensByRound, claims,
+    // Per-guest count of entries into the conservatory this case. The
+    // Thorn (and the final case's decoys) drift there far more often
+    // than anyone else, so a rising tally is a real behavioural tell —
+    // main.js increments it, render.js shows the leaders on the
+    // suspicion panel. A hint, never proof: only clues convict.
+    linger: GUESTS.map(() => 0),
     final, name: final ? 'Case III — The Thorn Unmasked'
       : caseNum === 1 ? 'Case I — The Sealed Invitation'
       : caseNum === 2 ? 'Case II — The Conservatory Door'
